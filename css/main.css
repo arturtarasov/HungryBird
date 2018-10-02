@@ -1,3 +1,59 @@
+
+/*анимация земли*/
+@-webkit-keyframes animLand {
+    0% { background-position: 0px 0px; }
+    100% { background-position: -335px 0px; }
+}
+@-moz-keyframes animLand {
+    0% { background-position: 0px 0px; }
+    100% { background-position: -335px 0px; }
+}
+@-o-keyframes animLand {
+    0% { background-position: 0px 0px; }
+    100% { background-position: -335px 0px; }
+}
+@keyframes animLand {
+    0% { background-position: 0px 0px; }
+    100% { background-position: -335px 0px; }
+}
+
+/*анимация неба*/
+@-webkit-keyframes animSky {
+    0% { background-position: 0px 100%; }
+    100% { background-position: -275px 100%; }
+}
+@-moz-keyframes animSky {
+    0% { background-position: 0px 100%; }
+    100% { background-position: -275px 100%; }
+}
+@-o-keyframes animSky {
+    0% { background-position: 0px 100%; }
+    100% { background-position: -275px 100%; }
+}
+@keyframes animSky {
+    0% { background-position: 0px 100%; }
+    100% { background-position: -275px 100%; }
+}
+
+/*анимация птички*/
+@-webkit-keyframes animBird {
+    from { background-position: 0px 0px; }
+    to { background-position: 0px -96px; }
+}
+@-moz-keyframes animBird {
+    from { background-position: 0px 0px; }
+    to { background-position: 0px -96px; }
+}
+@-o-keyframes animBird {
+    from { background-position: 0px 0px; }
+    to { background-position: 0px -96px; }
+}
+@keyframes animBird {
+    from { background-position: 0px 0px; }
+    to { background-position: 0px -96px; }
+}
+
+
 #player
 {
     left: 560px;
@@ -13,4 +69,36 @@
 
     -webkit-animation: animBird 300ms steps(4) infinite;
     animation: animBird 300ms steps(4) infinite;
+}
+
+/*земля*/
+#land
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    background-image: url('../assets/img/land.png');
+    background-repeat: repeat-x;
+    background-position: 0px 0px;
+    background-color: #ded895;
+
+    -webkit-animation: animLand 2516ms linear infinite;
+    animation: animLand 2516ms linear infinite;
+}
+
+/*небо*/
+#sky
+{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 70%;
+    background-image: url('../assets/img/sky.png');
+    background-repeat: repeat-x;
+    background-position: 0px 100%;
+    background-color: #4ec0ca;
+
+    -webkit-animation: animSky 7s linear infinite;
+    animation: animSky 7s linear infinite;
 }
