@@ -1,13 +1,22 @@
+//гравитация птички
 var gravity = 0.25;
+
+//скорость изменения поворота птички
 var velocity = 0;
-var position = 180;
+
+var position = 100;
 var rotation = 0;
+
+//прижок птички
 var jump = -4.6;
 
+//переменная для хранения интервала, возможность остановить игру
 var loopGameloop;
 
+//текущее состояние игры
 var currentstate;
 
+//состяния игры
 var states = Object.freeze({
     SplashScreen: 0,
     GameScreen: 1,
@@ -31,28 +40,32 @@ function showSplash()
     $("#player").css({ y: 0, x: 0});
     updatePlayer($("#player"));
 }
+
 function startGame()
 {
     currentstate = states.GameScreen;
 
-    //start up our loops
+    //начало цикла
     var updaterate = 1000.0 / 60.0 ; //60 times a second
     loopGameloop = setInterval(gameloop, updaterate);
 
-    //jump from the start!
+    //прыжок для старта
     playerJump();
 }
 
+//ф-ция для управления птичкой
 function updatePlayer(player)
 {
-    //rotation
+    //rotate тички
     rotation = Math.min((velocity / 10) * 90, 90);
-    //apply rotation and position
+    //запись rotation and position птички
     $(player).css({ rotate: rotation, top: position });
+    console.log(1);
 }
 
-
+//ф-ция для постоянного обновеления кадров
 function gameloop() {
+    console.log(2);
     var player = $("#player");
 
     //обновление у птички speed и position
@@ -73,7 +86,7 @@ function gameloop() {
     }
 }
 
-//Handle space bar
+//нажатие
 $(document).keydown(function(e){
     //нажатие на пробел
     if(e.keyCode == 32)
@@ -86,6 +99,7 @@ $(document).keydown(function(e){
     }
 });
 
+//ф-ция для прыжка
 function playerJump()
 {
     velocity = jump;
@@ -103,6 +117,7 @@ function screenClick()
     }
 }
 
+//смерть птички, остановка игры
 function playerDead()
 {
     //stop animating everything!
